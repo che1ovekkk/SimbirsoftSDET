@@ -15,7 +15,8 @@ assert 'Калькулятор' in browser.title
 case_2 = [locators.loc_6,
           locators.loc_divide,
           locators.loc_0,
-          locators.loc_equals]
+          locators.loc_equals,
+          ]
 
 for element in case_2:
     elem = browser.find_element(By.XPATH, element)

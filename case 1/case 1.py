@@ -24,7 +24,8 @@ case_1 = [locators.loc_open_brack,
           locators.loc_0,
           locators.loc_divide,
           locators.loc_5,
-          locators.loc_equals]
+          locators.loc_equals,
+          ]
 
 for element in case_1:
     elem = browser.find_element(By.XPATH, element)
