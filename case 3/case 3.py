@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import locators
 
 path = 'C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe'
 
@@ -11,11 +12,9 @@ elem.send_keys('Калькулятор')
 elem.send_keys(Keys.RETURN)
 assert 'Калькулятор' in browser.title
 
-elem = browser.find_element(By.XPATH, '//*[@id="rso"]/div[1]/div/div/div[1]/div/div/div[3]/div/table[1]/tbody/tr[2]/'
-                                      'td[2]/div/div[1]')
+elem = browser.find_element(By.XPATH, locators.loc_sin)
 elem.click()
-elem = browser.find_element(By.XPATH, '//*[@id="rso"]/div[1]/div/div/div[1]/div/div/div[3]/div/table[2]/tbody/tr[5]/'
-                                      'td[3]/div/div')
+elem = browser.find_element(By.XPATH, locators.loc_equals)
 elem.click()
 
 answer1 = browser.find_element(By.XPATH, '//*[@id="rso"]/div[1]/div/div/div[1]/div/div/div[1]/div[2]/div[1]/div/span')

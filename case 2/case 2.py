@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import locators
 
 path = 'C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe'
 
@@ -11,16 +12,14 @@ elem.send_keys('Калькулятор')
 elem.send_keys(Keys.RETURN)
 assert 'Калькулятор' in browser.title
 
-elem = browser.find_element(By.XPATH, '//*[text()="6"]')
-elem.click()
-elem = browser.find_element(By.XPATH, '//*[@id="rso"]/div[1]/div/div/div[1]/div/div/div[3]/div/table[2]/tbody/tr[2]/'
-                                      'td[4]/div/div')
-elem.click()
-elem = browser.find_element(By.XPATH, '//*[text()="0"]')
-elem.click()
-elem = browser.find_element(By.XPATH, '//*[@id="rso"]/div[1]/div/div/div[1]/div/div/div[3]/div/table[2]/tbody/tr[5]/'
-                                      'td[3]/div/div')
-elem.click()
+case_2 = [locators.loc_6,
+          locators.loc_divide,
+          locators.loc_0,
+          locators.loc_equals]
+
+for element in case_2:
+    elem = browser.find_element(By.XPATH, element)
+    elem.click()
 
 answer = browser.find_element(By.CSS_SELECTOR, '#cwos')
 assert 'Infinity' == answer.text
